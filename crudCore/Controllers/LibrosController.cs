@@ -29,5 +29,18 @@ namespace crudCore.Controllers
         {
             return View();
         }
+
+        //Http Post Create
+        [HttpPost]
+        public IActionResult Create(Libro libro)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Libro.Add(libro);
+                _context.SaveChanges();
+            }
+
+            return View();
+        }
     }
 }
